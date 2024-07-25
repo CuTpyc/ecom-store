@@ -12,13 +12,13 @@ check:
 up: check
 	$(docker_compose_bin) $(compose_config) up -d
 
-down: 
+down:
 	$(docker_compose_bin) $(compose_config) down
 
-ps: 
+ps:
 	$(docker_compose_bin) $(compose_config) ps -a
-
-run: 
+	
+run:
 	$(docker_compose_bin) $(compose_config) stop remix
 	$(docker_compose_bin) $(compose_config) run --rm $(SOURCE_VOLUME) -p 3000:3000 remix bash
 	$(docker_compose_bin) $(compose_config) start remix
